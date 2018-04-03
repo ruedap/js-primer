@@ -1,0 +1,926 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Ajax&#x3067;&#x901A;&#x4FE1; &#xB7; JavaScript&#x306E;&#x5165;&#x9580;&#x66F8; #jsprimer</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-docsearch/doc-search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+         
+    
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="entrypoint/">
+    
+    
+
+    <link rel="canonical" href="https://asciidwango.github.io/js-primer/use-case/ajaxapp/">
+
+<meta name="google-site-verification" content="bMotEbgYwkzA3k4PkuyK_NUdz0bKh-Phz0oUwNmRSVo">
+<style>
+    /*
+    Disable antialias
+    */
+
+    * {
+        -webkit-font-smoothing: initial!important
+    }
+
+    body {
+        text-rendering: initial!important;
+        font-smoothing: initial!important;
+    }
+
+    /* DocSearch
+        https://blog.uilicious.com/gitbook-made-better-with-algolia-docsearch-ff1b909ddb0b
+    */
+
+    .book-summary {
+        overflow-y: inherit;
+    }
+
+    nav[role="navigation"],
+    .summary {
+        height: 100%;
+    }
+
+    .summary {
+        overflow-y: auto;
+    }
+
+    /* deny access chapter */
+
+    .summary li.chapter>span {
+        cursor: not-allowed;
+        opacity: .3;
+    }
+
+    /* console ui */
+
+    .mirror-console-attach-button-wrapper {
+        margin-top: -1.275em;
+        margin-bottom: 1.275em
+    }
+
+    .mirror-console-wrapper {
+        margin-top: 1.275em;
+        margin-bottom: 1.275em
+    }
+</style>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary"><div id="book-search-input">
+    <input type="text" id="book-doc-search-input" placeholder="Type to search">
+</div>
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    &#x3053;&#x306E;&#x66F8;&#x7C4D;&#x306B;&#x3064;&#x3044;&#x3066;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2">
+            
+                <span>
+            
+                    
+                    &#x672C;&#x66F8;&#x306E;&#x8AAD;&#x307F;&#x65B9;
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../intro/goal/">
+            
+                <a href="../../intro/goal/">
+            
+                    
+                    &#x672C;&#x66F8;&#x306E;&#x76EE;&#x7684;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../basic/">
+            
+                <a href="../../basic/">
+            
+                    
+                    &#x7B2C;1&#x90E8;: &#x57FA;&#x790E;&#x6587;&#x6CD5;
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../basic/introduction/">
+            
+                <a href="../../basic/introduction/">
+            
+                    
+                    JavaScript&#x3068;&#x306F;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../basic/comments/">
+            
+                <a href="../../basic/comments/">
+            
+                    
+                    &#x30B3;&#x30E1;&#x30F3;&#x30C8;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../basic/variables/">
+            
+                <a href="../../basic/variables/">
+            
+                    
+                    &#x5909;&#x6570;&#x3068;&#x5BA3;&#x8A00;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../basic/read-eval-print/">
+            
+                <a href="../../basic/read-eval-print/">
+            
+                    
+                    &#x5024;&#x306E;&#x8A55;&#x4FA1;&#x3068;&#x8868;&#x793A;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../basic/data-type/">
+            
+                <a href="../../basic/data-type/">
+            
+                    
+                    &#x30C7;&#x30FC;&#x30BF;&#x578B;&#x3068;&#x30EA;&#x30C6;&#x30E9;&#x30EB;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../../basic/function-declaration/">
+            
+                <a href="../../basic/function-declaration/">
+            
+                    
+                    &#x95A2;&#x6570;&#x3068;&#x5BA3;&#x8A00;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../../basic/statement-expression/">
+            
+                <a href="../../basic/statement-expression/">
+            
+                    
+                    &#x6587;&#x3068;&#x5F0F;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../../basic/condition/">
+            
+                <a href="../../basic/condition/">
+            
+                    
+                    &#x6761;&#x4EF6;&#x5206;&#x5C90;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../../basic/loop/">
+            
+                <a href="../../basic/loop/">
+            
+                    
+                    &#x30EB;&#x30FC;&#x30D7;&#x3068;&#x53CD;&#x5FA9;&#x51E6;&#x7406;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../../basic/operator/">
+            
+                <a href="../../basic/operator/">
+            
+                    
+                    &#x6F14;&#x7B97;&#x5B50;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../../basic/implicit-coercion/">
+            
+                <a href="../../basic/implicit-coercion/">
+            
+                    
+                    &#x6697;&#x9ED9;&#x7684;&#x306A;&#x578B;&#x5909;&#x63DB;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../../basic/object/">
+            
+                <a href="../../basic/object/">
+            
+                    
+                    &#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../../basic/array/">
+            
+                <a href="../../basic/array/">
+            
+                    
+                    &#x914D;&#x5217;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../../basic/string/">
+            
+                <a href="../../basic/string/">
+            
+                    
+                    &#x6587;&#x5B57;&#x5217;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../../basic/math/">
+            
+                <a href="../../basic/math/">
+            
+                    
+                    Math
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../../basic/wrapper-object/">
+            
+                <a href="../../basic/wrapper-object/">
+            
+                    
+                    &#x30E9;&#x30C3;&#x30D1;&#x30FC;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../../basic/function-scope/">
+            
+                <a href="../../basic/function-scope/">
+            
+                    
+                    &#x95A2;&#x6570;&#x3068;&#x30B9;&#x30B3;&#x30FC;&#x30D7;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../../basic/function-this/">
+            
+                <a href="../../basic/function-this/">
+            
+                    
+                    &#x95A2;&#x6570;&#x3068;this
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../../basic/class/">
+            
+                <a href="../../basic/class/">
+            
+                    
+                    &#x30AF;&#x30E9;&#x30B9;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../../basic/error-try-catch/">
+            
+                <a href="../../basic/error-try-catch/">
+            
+                    
+                    &#x4F8B;&#x5916;&#x51E6;&#x7406;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21">
+            
+                <span>
+            
+                    
+                    Promise
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22">
+            
+                <span>
+            
+                    
+                    Generator/Iterable/Iterator
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23">
+            
+                <span>
+            
+                    
+                    &#x30D3;&#x30EB;&#x30C8;&#x30A4;&#x30F3;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.23.1" data-path="../../basic/json/">
+            
+                <a href="../../basic/json/">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23.2" data-path="../../basic/date/">
+            
+                <a href="../../basic/date/">
+            
+                    
+                    Date
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23.3" data-path="../../basic/map-and-set/">
+            
+                <a href="../../basic/map-and-set/">
+            
+                    
+                    Map/Set
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23.4">
+            
+                <span>
+            
+                    
+                    Symbol
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.24">
+            
+                <span>
+            
+                    
+                    Proxy/Reflect API
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.25" data-path="../../basic/bad-parts/">
+            
+                <a href="../../basic/bad-parts/">
+            
+                    
+                    &#x975E;&#x63A8;&#x5968;&#x306E;&#x6A5F;&#x80FD;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.26" data-path="../../basic/ecmascript/">
+            
+                <a href="../../basic/ecmascript/">
+            
+                    
+                    ECMAScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    &#x7B2C;2&#x90E8;: &#x5FDC;&#x7528;&#x7DE8;&#xFF08;&#x30E6;&#x30FC;&#x30B9;&#x30B1;&#x30FC;&#x30B9;&#xFF09;
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1">
+            
+                <span>
+            
+                    
+                    &#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Ajax&#x3067;&#x901A;&#x4FE1;
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="entrypoint/">
+            
+                <a href="entrypoint/">
+            
+                    
+                    &#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30DD;&#x30A4;&#x30F3;&#x30C8;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="xhr/">
+            
+                <a href="xhr/">
+            
+                    
+                    HTTP&#x901A;&#x4FE1;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="display/">
+            
+                <a href="display/">
+            
+                    
+                    &#x30C7;&#x30FC;&#x30BF;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="promise/">
+            
+                <a href="promise/">
+            
+                    
+                    Promise&#x3092;&#x6D3B;&#x7528;&#x3059;&#x308B;
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../nodecli/">
+            
+                <a href="../nodecli/">
+            
+                    
+                    Node.js&#x3067;CLI&#x30A2;&#x30D7;&#x30EA;
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../nodecli/helloworld/">
+            
+                <a href="../nodecli/helloworld/">
+            
+                    
+                    Node.js&#x3067;Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../nodecli/argument-parse/">
+            
+                <a href="../nodecli/argument-parse/">
+            
+                    
+                    &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x30E9;&#x30A4;&#x30F3;&#x5F15;&#x6570;&#x3092;&#x51E6;&#x7406;&#x3059;&#x308B;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../nodecli/read-file/">
+            
+                <a href="../nodecli/read-file/">
+            
+                    
+                    &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3080;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.4" data-path="../nodecli/md-to-html/">
+            
+                <a href="../nodecli/md-to-html/">
+            
+                    
+                    Markdown&#x3092;HTML&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.5" data-path="../nodecli/refactor-and-unittest/">
+            
+                <a href="../nodecli/refactor-and-unittest/">
+            
+                    
+                    &#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x8A18;&#x8FF0;&#x3059;&#x308B;
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../todoapp/">
+            
+                <a href="../todoapp/">
+            
+                    
+                    Todo&#x30A2;&#x30D7;&#x30EA;
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../..">Ajax&#x3067;&#x901A;&#x4FE1;</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="usecase-ajax"><a name="usecase-ajax" class="plugin-anchor" href="#usecase-ajax"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30E6;&#x30FC;&#x30B9;&#x30B1;&#x30FC;&#x30B9;: Ajax&#x901A;&#x4FE1; </h1>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x30A6;&#x30A7;&#x30D6;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x4E0A;&#x3067;Ajax&#x901A;&#x4FE1;&#x3092;&#x884C;&#x3046;&#x30E6;&#x30FC;&#x30B9;&#x30B1;&#x30FC;&#x30B9;&#x3068;&#x3057;&#x3066;&#x3001;GitHub&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;ID&#x304B;&#x3089;&#x30D7;&#x30ED;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x60C5;&#x5831;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F5C;&#x6210;&#x3059;&#x308B;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x6B21;&#x306E;&#x8981;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3059;&#x3082;&#x306E;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>GitHub&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;ID&#x3092;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306B;&#x5165;&#x529B;&#x3067;&#x304D;&#x308B;</li>
+<li>&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;ID&#x3092;&#x5143;&#x306B;GitHub&#x304B;&#x3089;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;</li>
+<li>&#x53D6;&#x5F97;&#x3057;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x3092;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x4E0A;&#x3067;&#x8868;&#x793A;&#x3059;&#x308B;</li>
+</ul>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="entrypoint/" class="navigation navigation-next navigation-unique" aria-label="Next page: &#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30DD;&#x30A4;&#x30F3;&#x30C8;">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"author":"laco","title":"Ajaxで通信","level":"1.5.2","depth":2,"next":{"title":"エントリポイント","level":"1.5.2.1","depth":3,"path":"use-case/ajaxapp/entrypoint/README.md","ref":"./use-case/ajaxapp/entrypoint/README.md","articles":[]},"previous":{"title":"モジュール","level":"1.5.1","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","docsearch","page-toc-button","include-codeblock","anchors","edit-link","canonical-link","ga","js-console","github-issue-feedback"],"root":"./source/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"docsearch":{},"docSearch":{"apiKey":"fd28ebaba94be0c39fb9fa1b2fed4f23","index":"asciidwango"},"github-issue-feedback":{"repo":"asciidwango/js-primer"},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"canonical-link":{"baseURL":"https://asciidwango.github.io/js-primer"},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"ga":{"configuration":"auto","token":"UA-2184335-18"},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit","base":"https://github.com/asciidwango/js-primer/edit/master/source/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"README.md"},"variables":{"console":"<a class=\"gitbook-plugin-js-console\" aria-hidden=\"true\"></a>"},"title":"JavaScriptの入門書 #jsprimer","gitbook":">=3.0.0","description":"この書籍はES2015以降をベースとしたJavaScript入門書となる予定"},"file":{"path":"use-case/ajaxapp/README.md","mtime":"2018-04-03T10:45:49.704Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-03T10:47:11.249Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-docsearch/doc-search-lib.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-docsearch/doc-search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-console/console-ui.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-issue-feedback/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
